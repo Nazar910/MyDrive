@@ -1,2 +1,2 @@
 # MyDrive
-Test Spirng MVC Hibernate project
+Test Spring MVC Hibernate project
