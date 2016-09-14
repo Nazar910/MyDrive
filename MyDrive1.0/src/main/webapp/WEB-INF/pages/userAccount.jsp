@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: pyvov
@@ -13,6 +14,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Congradulations!</h1>
+<c:set var="user" value="${username}"/>
+    <h1>Hello, <c:out value="${user}"/></h1>
+
+    <form class="form-inline" role="form" action="/add_file_page" method="post">
+        <input type="submit" class="btn btn-default" value="Add file"/>
+        <input type="hidden" name="username" value="${user}"/>
+    </form>
+
+    <table border="1">
+        <c:forEach items="${files}" var="file">
+            <tr>
+                <td>${file.name}</td>
+                <td><a href="/delete_file?id=${file.id}&username=${user}">Delete</a></td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>

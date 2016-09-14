@@ -17,7 +17,7 @@
     <h1>Welcome to MyDrive! Sign in if you`re already is our client</h1>
     <form class="form-inline" role="form" action="/sign_in" method="post">
         <input type="text" class="form-control" name="username" placeholder="Username or email"><br/>
-        <input type="text" class="form-control" name="password" placeholder="Password"><br/>
+        <input type="password" class="form-control" name="password" placeholder="Password"><br/>
         <input type="submit" class="btn btn-default" value="Sign in">
     </form>
     <h1>... Or sign up if  you`re not :D</h1>

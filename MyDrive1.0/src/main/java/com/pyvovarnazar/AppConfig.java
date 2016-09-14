@@ -22,11 +22,12 @@ public class AppConfig {
     @Bean
     public EntityManager entityManager(){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("MyDrive");
+
         return emf.createEntityManager();
     }
 
     @Bean
-    public FileDAO userDAO() {return new FileDAOImpl();}
+    public DAO userDAO() {return new DAOImpl();}
 
     @Bean
     public UrlBasedViewResolver setupViewResolver(){

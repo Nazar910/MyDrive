@@ -20,7 +20,7 @@ public class User {
 
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<File> files = new ArrayList<File>();
 
     public User(String userName, String password, String email, String phone) {
@@ -32,6 +32,9 @@ public class User {
 
     public User() {
 
+    }
+    public void addFile(File file){
+        files.add(file);
     }
 
     public long getId() {
