@@ -25,15 +25,8 @@ public class FilesController {
     }
 
     @PostMapping
-    public ResponseEntity<Resource> handleFileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-        System.out.println(request.getHeader("Authorization"));
-        String userPass = request.getHeader("Authorization").split("Basic ")[1];
-        System.out.println(userPass);
-        String decoded = new String(Base64.getDecoder().decode(userPass.getBytes()));
-        System.out.println(decoded);
-        String userName = decoded.split(":")[0];
-        // System.out.println(new String(decoded, Charset.forName("UTF-8")));
-        storageService.store(file, userName);
+    public ResponseEntity<Resource> handleFileUpload(@RequestParam("file") MultipartFile file) {
+        storageService.store(file);
         return ResponseEntity.ok().build();
     }
 
